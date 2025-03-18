@@ -1,0 +1,10 @@
+.flex-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: aqua;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 3em;
+  gap: 30px;
+  justify-content: space-between;
+}
