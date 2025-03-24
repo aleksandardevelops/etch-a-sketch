@@ -1,16 +1,39 @@
 const flexContainer = document.querySelector('.flex-container');
 
-for (i = 0; i < 16; i++) {
-  const row = document.createElement('div');
-  row.classList.add('row');
-  flexContainer.appendChild(row);
+let slider = document.getElementById('myRange');
+let output = document.querySelector('.density-output');
 
-  for (k = 0; k < 16; k++) {
-    const tile = document.createElement('div');
-    tile.classList.add('tile');
-    row.appendChild(tile);
+slider.onchange = function () {
+  output.innerHTML = this.value;
+  createGrid(slider.value);
+};
 
-    tile.style.width = '2em';
-    tile.style.height = '2em';
+function createGrid(size) {
+  flexContainer.innerHTML = '';
+  for (let i = 0; i < size; i++) {
+    let row = document.createElement('div');
+    row.classList.add('row');
+    flexContainer.appendChild(row);
+
+    for (let k = 0; k < size; k++) {
+      let tile = document.createElement('div');
+      tile.classList.add('tile-class');
+      row.appendChild(tile);
+      tile.style.backgroundColor = 'aqua';
+      if (size < 20) {
+        tile.style.width = '3em';
+        tile.style.height = '3em';
+      } else {
+        tile.style.width = '0.5em';
+        tile.style.height = '0.5em';
+      }
+      tile.style.backgroundColor = 'aqua';
+    }
   }
+  let allTiles = document.querySelectorAll('.tile-class');
+  allTiles.forEach((tile) =>
+    tile.addEventListener('mouseover', () => {
+      tile.style.backgroundColor = 'black';
+    })
+  );
 }
