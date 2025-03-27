@@ -11,6 +11,7 @@ slider.onchange = function () {
 
 function createGrid(size) {
   flexContainer.innerHTML = '';
+
   let tileSize = containerSize / size;
   for (let i = 0; i < size; i++) {
     let row = document.createElement('div');
@@ -43,3 +44,8 @@ function createGrid(size) {
     })
   );
 }
+
+// window.onresize = function () {
+//   containerSize = flexContainer.clientWidth;
+//   createGrid(slider.value);
+// };
