@@ -30,6 +30,7 @@ function createGrid(size) {
 
     for (let k = 0; k < size; k++) {
       let tile = document.createElement('div');
+      tile.setAttribute('draggable', 'false');
       tile.classList.add('tile-class');
       row.appendChild(tile);
       tile.style.backgroundColor = '#F0F0C9';

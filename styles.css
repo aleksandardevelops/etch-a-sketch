@@ -2,6 +2,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #a2cdd4;
+  user-select: none;
 }
 .main-container {
   display: flex;
@@ -85,4 +86,10 @@ input[type='range'] {
   height: 180px;
   margin-bottom: 1em;
   gap: 10px;
+}
+
+.tile-class {
+  user-select: none; /* No text/image selection */
+  -webkit-user-drag: none; /* Prevent drag on images/blocks (Chrome) */
+  cursor: crosshair; /* Optional: looks like a drawing tool */
 }
