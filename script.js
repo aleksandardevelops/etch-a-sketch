@@ -2,17 +2,18 @@ const flexContainer = document.querySelector('.flex-container');
 
 let slider = document.getElementById('myRange');
 let output = document.querySelector('.density-output');
-let containerSize = flexContainer.clientWidth;
+let containerWidth = flexContainer.clientWidth;
+let containerHeight = flexContainer.clientHeight;
 
-slider.onchange = function () {
+slider.addEventListener('input', function () {
   output.innerHTML = this.value;
-  createGrid(slider.value);
-};
+  createGrid(this.value);
+});
 
 function createGrid(size) {
   flexContainer.innerHTML = '';
 
-  let tileSize = containerSize / size;
+  let tileSize = Math.min(containerWidth, containerHeight) / size;
   for (let i = 0; i < size; i++) {
     let row = document.createElement('div');
     row.classList.add('row');
@@ -22,30 +23,18 @@ function createGrid(size) {
       let tile = document.createElement('div');
       tile.classList.add('tile-class');
       row.appendChild(tile);
-      tile.style.backgroundColor = 'aqua';
+      tile.style.backgroundColor = '#F0F0C9';
       tile.style.width = tileSize + 'px';
       tile.style.height = tileSize + 'px';
-
-      //   if (size < 20) {
-      //     tile.style.width = '3em';
-      //     tile.style.height = '3em';
-      //   } else {
-      //     tile.style.width = '0.5em';
-      //     tile.style.height = '0.5em';
-      //   }
-      //   tile.style.backgroundColor = 'aqua';
-      // }
     }
   }
   let allTiles = document.querySelectorAll('.tile-class');
   allTiles.forEach((tile) =>
     tile.addEventListener('mouseover', () => {
-      tile.style.backgroundColor = 'black';
+      tile.style.backgroundColor = '#00343D';
     })
   );
 }
 
-// window.onresize = function () {
-//   containerSize = flexContainer.clientWidth;
-//   createGrid(slider.value);
-// };
+output.innerHTML = slider.value;
+createGrid(slider.value);
