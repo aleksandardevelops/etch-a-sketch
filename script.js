@@ -10,6 +10,15 @@ slider.addEventListener('input', function () {
   createGrid(this.value);
 });
 
+let isPainting = false;
+
+document.body.addEventListener('mousedown', () => {
+  isPainting = true;
+});
+document.body.addEventListener('mouseup', () => {
+  isPainting = false;
+});
+
 function createGrid(size) {
   flexContainer.innerHTML = '';
 
@@ -29,11 +38,27 @@ function createGrid(size) {
     }
   }
   let allTiles = document.querySelectorAll('.tile-class');
-  allTiles.forEach((tile) =>
-    tile.addEventListener('mouseover', () => {
-      tile.style.backgroundColor = '#00343D';
-    })
-  );
+  allTiles.forEach((tile) => {
+    tile.addEventListener('mousedown', (e) => {
+      if (e.button === 0) {
+        tile.style.backgroundColor = '#00343D';
+      } else if (e.button === 2) {
+        tile.style.backgroundColor = '#F0F0C9';
+      }
+    });
+
+    tile.addEventListener('mouseover', (e) => {
+      if (isPainting && e.buttons === 1) {
+        tile.style.backgroundColor = '#00343D';
+      } else if (isPainting && e.buttons === 2) {
+        tile.style.backgroundColor = '#F0F0C9';
+      }
+    });
+
+    tile.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+    });
+  });
 }
 
 output.innerHTML = slider.value;

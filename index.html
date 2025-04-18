@@ -10,18 +10,28 @@
   <body>
     <div class="main-container">
       <h1 id="title">Etch-a-Sketch</h1>
-      <div class="flex-container"></div>
-      <div class="density-slider">
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value="16"
-          class="slider"
-          id="myRange"
-        />
-        <p id="density-text">Density: <span class="density-output"></span></p>
+      <div class="control-panel">
+        <div class="info-box">
+          <div id="info-box-sign">!</div>
+          <p id="info-box-text">
+            Left click and drag to paint. <br />
+            Right click and drag to delete. <br />
+            Choose your prefered density.
+          </p>
+        </div>
+        <div class="density-slider">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="16"
+            class="slider"
+            id="myRange"
+          />
+          <p id="density-text">Density: <span class="density-output"></span></p>
+        </div>
       </div>
+      <div class="flex-container"></div>
     </div>
   </body>
 </html>

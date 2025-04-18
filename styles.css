@@ -39,8 +39,15 @@ body {
 }
 
 .density-slider {
-  margin-top: 1em;
-  color: #00343d;
+  background-color: #f0f0c9;
+  padding: 14px;
+  border-radius: 30px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 input[type='range'] {
@@ -49,5 +56,33 @@ input[type='range'] {
 
 #density-text {
   text-align: center;
-  font-size: 1.5em;
+  margin: 5px;
+}
+
+.info-box {
+  padding: 14px;
+  display: flex;
+  gap: 10px;
+  background-color: #f0f0c9;
+  border-radius: 30px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.3em;
+  height: 100px;
+}
+
+#info-box-sign {
+  background-color: #cfcf9b;
+  padding: 0.5em 1.5em;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+}
+
+.control-panel {
+  display: flex;
+  align-items: center;
+  height: 180px;
+  margin-bottom: 1em;
+  gap: 10px;
 }
